@@ -15,14 +15,29 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         {!isLoggedIn ? (
-          <Stack.Screen name="Login">
+          <Stack.Screen 
+            name="Login"
+            options={{ headerShown: false }} // This will hide the header only for the Login screen
+          >
             {props => <LoginScreen {...props} setIsLoggedIn={setIsLoggedIn} />}
           </Stack.Screen>
         ) : (
           <>
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="AddCredential" component={AddCredentialScreen} />
-            <Stack.Screen name="ViewCredential" component={ViewCredentialScreen} />
+            <Stack.Screen 
+              name="Home" 
+              component={HomeScreen}
+              options={{ headerShown: true, title: "Credential Manager" }} // Explicitly show header for Home screen
+            />
+            <Stack.Screen 
+              name="AddCredential" 
+              component={AddCredentialScreen}
+              options={{ headerShown: true, title: "Add Credential"  }} // Explicitly show header for AddCredential screen
+            />
+            <Stack.Screen 
+              name="ViewCredential" 
+              component={ViewCredentialScreen}
+              options={{ headerShown: true, title: "View Credential" }} // Explicitly show header for ViewCredential screen
+            />
           </>
         )}
       </Stack.Navigator>

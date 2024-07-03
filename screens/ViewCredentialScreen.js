@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, Button, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import EncryptedStorage from 'react-native-encrypted-storage';
 
 const ViewCredentialScreen = ({ route, navigation }) => {
@@ -34,15 +34,22 @@ const ViewCredentialScreen = ({ route, navigation }) => {
       <Text style={styles.value}>
         {showPassword ? credential.password : '••••••••'}
       </Text>
+
+
+      <Text style={styles.label}>Other Info:</Text>
+      <Text style={styles.value}>{credential.otherInfo}</Text>
       
       <Button
+      style={styles.dbuttonText}
         title={showPassword ? "Hide Password" : "Show Password"}
         onPress={() => setShowPassword(!showPassword)}
       />
-      
-      <View style={styles.deleteButton}>
-        <Button title="Delete Credential" onPress={handleDelete} color="red" />
-      </View>
+
+    
+      <TouchableOpacity style={styles.dbutton} onPress={handleDelete}>
+            <Text style={styles.dbuttonText}>Delete Credential</Text>
+          </TouchableOpacity>
+
     </View>
   );
 };
@@ -53,17 +60,34 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   label: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: 'bold',
     marginTop: 10,
   },
   value: {
-    fontSize: 16,
+    fontSize: 12,
     marginBottom: 10,
   },
   deleteButton: {
     marginTop: 20,
   },
+
+  dbutton: {
+    backgroundColor: '#e74c3c',
+    padding: 10,
+    borderRadius: 15,
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  dbuttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+
+ 
+
 });
 
 export default ViewCredentialScreen;

@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import EncryptedStorage from 'react-native-encrypted-storage';
+import FontAwesome, {
+    SolidIcons,
+    RegularIcons,
+    BrandIcons,
+    parseIconFromClassName,
+  } from 'react-native-fontawesome';
 
 const HomeScreen = ({ navigation }) => {
   const [credentials, setCredentials] = useState([]);
@@ -29,7 +35,8 @@ const HomeScreen = ({ navigation }) => {
       style={styles.item}
       onPress={() => navigation.navigate('ViewCredential', { credential: item })}
     >
-      <Text style={styles.title}>{item.title}</Text>
+         
+      <Text style={styles.title}> # {item.title}</Text>
     </TouchableOpacity>
   );
 
@@ -56,19 +63,20 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
+    backgroundColor: '#cd84f1',
+    padding: 10,
     marginVertical: 8,
     marginHorizontal: 16,
   },
   title: {
     fontSize: 18,
+    color:'#fff'
   },
   addButton: {
     position: 'absolute',
     right: 30,
     bottom: 30,
-    backgroundColor: 'blue',
+    backgroundColor: '#e84118',
     width: 50,
     height: 50,
     borderRadius: 25,
