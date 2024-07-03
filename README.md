@@ -16,6 +16,24 @@ npm start
 
 # OR using Yarn
 yarn start
+
+npx react-native init CredentialManager
+cd CredentialManager
+npm install @react-navigation/native @react-navigation/stack react-native-encrypted-storage
+npm install react-native-screens react-native-safe-area-context
+
+npm install react-native-gesture-handler
+
+Now, let's create the full application structure:
+App.js (main entry point)
+screens/LoginScreen.js
+screens/HomeScreen.js
+screens/AddCredentialScreen.js
+screens/ViewCredentialScreen.js
+
+
+
+
 ```
 
 ## Step 2: Start your Application
